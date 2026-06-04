@@ -537,44 +537,118 @@
       <div class="reveal text-center">
         <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-soft">Contact</p>
         <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Let's build something great</h2>
-        <p class="mt-4 text-slate-400">Tell us about your project and we'll get back to you within 24 hours.</p>
+        <p class="mt-4 text-slate-400">Describe your project below and we'll send a free, tailored quote within 24 hours. The more detail you share, the more accurate it'll be.</p>
       </div>
 
-      <form id="contactForm" class="glass reveal mt-12 space-y-5 rounded-3xl p-8" novalidate>
+      <form id="contactForm" class="glass reveal mt-12 space-y-6 rounded-3xl p-8" novalidate>
+        <!-- Step 1: who -->
         <div class="grid gap-5 sm:grid-cols-2">
           <div>
-            <label for="name" class="mb-2 block text-sm font-medium text-slate-300">Your name</label>
+            <label for="name" class="mb-2 block text-sm font-medium text-slate-300">Your name <span class="text-cta">*</span></label>
             <input id="name" name="name" type="text" required autocomplete="name"
               class="w-full rounded-xl border border-white/10 bg-ink-800 px-4 py-3 text-white placeholder-slate-500 outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/40"
               placeholder="Ada Obi" />
           </div>
           <div>
-            <label for="email" class="mb-2 block text-sm font-medium text-slate-300">Email</label>
+            <label for="email" class="mb-2 block text-sm font-medium text-slate-300">Email <span class="text-cta">*</span></label>
             <input id="email" name="email" type="email" required autocomplete="email"
               class="w-full rounded-xl border border-white/10 bg-ink-800 px-4 py-3 text-white placeholder-slate-500 outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/40"
               placeholder="you@example.com" />
           </div>
         </div>
-        <div>
-          <label for="service" class="mb-2 block text-sm font-medium text-slate-300">What do you need?</label>
-          <select id="service" name="service"
-            class="w-full rounded-xl border border-white/10 bg-ink-800 px-4 py-3 text-white outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/40">
-            <option>Web design &amp; development</option>
-            <option>Mobile app development</option>
-            <option>UI/UX &amp; branding</option>
-            <option>Care &amp; growth / support</option>
-            <option>Something else</option>
-          </select>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label for="phone" class="mb-2 block text-sm font-medium text-slate-300">Phone / WhatsApp <span class="text-slate-500">(optional)</span></label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel"
+              class="w-full rounded-xl border border-white/10 bg-ink-800 px-4 py-3 text-white placeholder-slate-500 outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/40"
+              placeholder="+234 ..." />
+          </div>
+          <div>
+            <label for="company" class="mb-2 block text-sm font-medium text-slate-300">Company / brand <span class="text-slate-500">(optional)</span></label>
+            <input id="company" name="company" type="text" autocomplete="organization"
+              class="w-full rounded-xl border border-white/10 bg-ink-800 px-4 py-3 text-white placeholder-slate-500 outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/40"
+              placeholder="Your business name" />
+          </div>
         </div>
+
+        <!-- Step 2: scope -->
+        <div class="grid gap-5 sm:grid-cols-3">
+          <div>
+            <label for="service" class="mb-2 block text-sm font-medium text-slate-300">Project type</label>
+            <select id="service" name="service"
+              class="w-full rounded-xl border border-white/10 bg-ink-800 px-4 py-3 text-white outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/40">
+              <option>Website (business / marketing)</option>
+              <option>E-commerce / online store</option>
+              <option>Web app / platform</option>
+              <option>Mobile app (Android / iOS)</option>
+              <option>UI/UX &amp; branding</option>
+              <option>Redesign of existing site</option>
+              <option>Care &amp; growth / support</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div>
+            <label for="budget" class="mb-2 block text-sm font-medium text-slate-300">Budget range</label>
+            <select id="budget" name="budget"
+              class="w-full rounded-xl border border-white/10 bg-ink-800 px-4 py-3 text-white outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/40">
+              <option value="">Not sure yet</option>
+              <option>Under ₦150k</option>
+              <option>₦150k – ₦400k</option>
+              <option>₦400k – ₦1M</option>
+              <option>₦1M – ₦3M</option>
+              <option>₦3M+</option>
+            </select>
+          </div>
+          <div>
+            <label for="timeline" class="mb-2 block text-sm font-medium text-slate-300">Timeline</label>
+            <select id="timeline" name="timeline"
+              class="w-full rounded-xl border border-white/10 bg-ink-800 px-4 py-3 text-white outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/40">
+              <option value="">Flexible</option>
+              <option>ASAP / urgent</option>
+              <option>Within 2 weeks</option>
+              <option>1–2 months</option>
+              <option>Just exploring</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Step 3: features -->
+        <fieldset>
+          <legend class="mb-3 block text-sm font-medium text-slate-300">Features you need <span class="text-slate-500">(tick all that apply)</span></legend>
+          <div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+            <label class="flex cursor-pointer items-center gap-2.5 rounded-xl border border-white/10 bg-ink-800 px-3 py-2.5 text-sm text-slate-300 transition hover:border-brand/50">
+              <input type="checkbox" name="features" value="Online payments" class="h-4 w-4 rounded border-white/20 bg-ink-700 text-cta focus:ring-cta/40 cursor-pointer" /> Online payments
+            </label>
+            <label class="flex cursor-pointer items-center gap-2.5 rounded-xl border border-white/10 bg-ink-800 px-3 py-2.5 text-sm text-slate-300 transition hover:border-brand/50">
+              <input type="checkbox" name="features" value="Booking / scheduling" class="h-4 w-4 rounded border-white/20 bg-ink-700 text-cta focus:ring-cta/40 cursor-pointer" /> Booking / scheduling
+            </label>
+            <label class="flex cursor-pointer items-center gap-2.5 rounded-xl border border-white/10 bg-ink-800 px-3 py-2.5 text-sm text-slate-300 transition hover:border-brand/50">
+              <input type="checkbox" name="features" value="User accounts / login" class="h-4 w-4 rounded border-white/20 bg-ink-700 text-cta focus:ring-cta/40 cursor-pointer" /> User accounts
+            </label>
+            <label class="flex cursor-pointer items-center gap-2.5 rounded-xl border border-white/10 bg-ink-800 px-3 py-2.5 text-sm text-slate-300 transition hover:border-brand/50">
+              <input type="checkbox" name="features" value="Blog / CMS" class="h-4 w-4 rounded border-white/20 bg-ink-700 text-cta focus:ring-cta/40 cursor-pointer" /> Blog / CMS
+            </label>
+            <label class="flex cursor-pointer items-center gap-2.5 rounded-xl border border-white/10 bg-ink-800 px-3 py-2.5 text-sm text-slate-300 transition hover:border-brand/50">
+              <input type="checkbox" name="features" value="Admin dashboard" class="h-4 w-4 rounded border-white/20 bg-ink-700 text-cta focus:ring-cta/40 cursor-pointer" /> Admin dashboard
+            </label>
+            <label class="flex cursor-pointer items-center gap-2.5 rounded-xl border border-white/10 bg-ink-800 px-3 py-2.5 text-sm text-slate-300 transition hover:border-brand/50">
+              <input type="checkbox" name="features" value="Logo / branding" class="h-4 w-4 rounded border-white/20 bg-ink-700 text-cta focus:ring-cta/40 cursor-pointer" /> Logo / branding
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- Step 4: full description -->
         <div>
-          <label for="message" class="mb-2 block text-sm font-medium text-slate-300">Project details</label>
-          <textarea id="message" name="message" rows="4" required
+          <label for="message" class="mb-2 block text-sm font-medium text-slate-300">Describe your project in detail <span class="text-cta">*</span></label>
+          <textarea id="message" name="message" rows="7" required minlength="30"
             class="w-full rounded-xl border border-white/10 bg-ink-800 px-4 py-3 text-white placeholder-slate-500 outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/40"
-            placeholder="Tell us a bit about what you want to build..."></textarea>
+            placeholder="The more detail, the more accurate your quote. Try to cover:&#10;• What does your business do, and who are your customers?&#10;• What should the site/app do? (key pages, features, goals)&#10;• Do you have a logo, brand colours, or content ready?&#10;• Any websites/apps you like as a reference (paste links)&#10;• Anything else we should know"></textarea>
+          <p class="mt-2 text-xs text-slate-500">Tip: even a rough description helps — we'll refine the details together on a quick call.</p>
         </div>
+
         <button type="submit"
           class="w-full rounded-xl bg-cta px-6 py-3.5 font-semibold text-white shadow-glow transition-colors duration-200 hover:bg-cta-hover cursor-pointer">
-          Send message
+          Get my free quote
         </button>
         <p id="formNote" class="hidden text-center text-sm text-green-400"></p>
       </form>
@@ -634,7 +708,7 @@
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
-      note.textContent = "Thanks! Your message has been recorded. We'll reply within 24 hours.";
+      note.textContent = "Thanks! We've got your project brief — we'll send your free quote within 24 hours.";
       note.classList.remove('hidden');
       form.reset();
     });
