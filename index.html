@@ -2,20 +2,72 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>WebApp — Web Design & App Development Studio in Nigeria</title>
   <meta name="description" content="WebApp is a Nigerian studio crafting fast, beautiful websites and mobile apps. Web design, app development, UI/UX and ongoing support that helps your business grow." />
+  <meta name="keywords" content="web design Nigeria, app development Nigeria, website designer Lagos, mobile app developer, UI UX design, web development agency, ecommerce website Nigeria" />
+  <meta name="author" content="WebApp" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#0B0B14" />
+  <link rel="canonical" href="https://webapp.com.ng/" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
-  <meta property="og:image" content="logo-icon-1024.png" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="WebApp — Web Design & App Development Studio" />
   <meta property="og:description" content="We build fast, modern websites and mobile apps for ambitious Nigerian businesses." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://webapp.com.ng" />
+  <meta property="og:url" content="https://webapp.com.ng/" />
+  <meta property="og:site_name" content="WebApp" />
+  <meta property="og:locale" content="en_NG" />
+  <meta property="og:image" content="https://webapp.com.ng/logo-icon-1024.png" />
+  <meta property="og:image:width" content="1024" />
+  <meta property="og:image:height" content="1024" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="WebApp — Web Design & App Development Studio" />
+  <meta name="twitter:description" content="We build fast, modern websites and mobile apps for ambitious Nigerian businesses." />
+  <meta name="twitter:image" content="https://webapp.com.ng/logo-icon-1024.png" />
+
+  <!-- Structured data: business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "WebApp",
+    "description": "Nigerian web design and app development studio building fast, modern websites and mobile apps.",
+    "url": "https://webapp.com.ng/",
+    "image": "https://webapp.com.ng/logo-icon-1024.png",
+    "email": "contact@webapp.com.ng",
+    "telephone": "+2349037715505",
+    "priceRange": "₦₦",
+    "areaServed": { "@type": "Country", "name": "Nigeria" },
+    "address": { "@type": "PostalAddress", "addressCountry": "NG" },
+    "sameAs": [],
+    "makesOffer": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Design & Development" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile App Development" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "UI/UX & Branding" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Care & Growth" } }
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQ (rich results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How long does a project take?", "acceptedAnswer": { "@type": "Answer", "text": "Most websites launch in 1–3 weeks. Mobile apps and custom platforms typically run 4–10 weeks depending on scope. We give you a firm timeline before we start." } },
+      { "@type": "Question", "name": "Do you offer payment plans?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We usually split projects into a deposit and milestone payments so it's easy on your cash flow." } },
+      { "@type": "Question", "name": "Will I be able to edit the site myself?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We can build on a CMS and train your team, or handle updates for you on a support plan — your choice." } },
+      { "@type": "Question", "name": "What do you need from me to start?", "acceptedAnswer": { "@type": "Answer", "text": "Just your goals and any existing brand materials. We'll guide the rest — content, structure and design — from there." } }
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,7 +91,12 @@
   </script>
 
   <style>
-    html { background: #0B0B14; }
+    html { background: #0B0B14; -webkit-text-size-adjust: 100%; }
+    body { overflow-x: hidden; }
+    /* Respect iOS notches / safe areas */
+    @supports (padding: max(0px)) {
+      header { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
+    }
 
     /* Animated gradient mesh background */
     .mesh::before {
@@ -136,7 +193,7 @@
   </header>
 
   <!-- ===== HERO ===== -->
-  <section id="home" class="relative overflow-hidden pt-40 pb-24">
+  <section id="home" class="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-24">
     <div class="mx-auto max-w-6xl px-6">
       <div class="grid items-center gap-12 lg:grid-cols-2">
         <div class="reveal">
