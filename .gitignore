@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# Build / tooling
+_build/
+
+# Local preview config
+.claude/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
