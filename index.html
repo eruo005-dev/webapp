@@ -540,7 +540,14 @@
         <p class="mt-4 text-slate-400">Describe your project below and we'll send a free, tailored quote within 24 hours. The more detail you share, the more accurate it'll be.</p>
       </div>
 
-      <form id="contactForm" class="glass reveal mt-12 space-y-6 rounded-3xl p-8" novalidate>
+      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="glass reveal mt-12 space-y-6 rounded-3xl p-8" novalidate>
+        <!-- Web3Forms config -->
+        <input type="hidden" name="access_key" value="8b73c627-c589-4e8b-9414-974d2cb8790c" />
+        <input type="hidden" name="subject" value="New project quote request — webapp.com.ng" />
+        <input type="hidden" name="from_name" value="webapp.com.ng website" />
+        <!-- Honeypot spam trap (bots fill this; humans never see it) -->
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" class="hidden" style="display:none !important" aria-hidden="true" />
+
         <!-- Step 1: who -->
         <div class="grid gap-5 sm:grid-cols-2">
           <div>
@@ -705,12 +712,43 @@
 
     const form = document.getElementById('contactForm');
     const note = document.getElementById('formNote');
-    form.addEventListener('submit', (e) => {
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    function showNote(msg, ok) {
+      note.textContent = msg;
+      note.classList.remove('hidden', 'text-green-400', 'text-red-400');
+      note.classList.add(ok ? 'text-green-400' : 'text-red-400');
+    }
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
-      note.textContent = "Thanks! We've got your project brief — we'll send your free quote within 24 hours.";
-      note.classList.remove('hidden');
-      form.reset();
+
+      const original = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-70', 'cursor-wait');
+      submitBtn.textContent = 'Sending…';
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form),
+        });
+        const data = await res.json();
+        if (data.success) {
+          showNote("Thanks! We've got your project brief — we'll send your free quote within 24 hours.", true);
+          form.reset();
+        } else {
+          showNote("Sorry, something went wrong. Please email contact@webapp.com.ng or WhatsApp us instead.", false);
+        }
+      } catch (err) {
+        showNote("Network error — please email contact@webapp.com.ng or WhatsApp us instead.", false);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('opacity-70', 'cursor-wait');
+        submitBtn.textContent = original;
+      }
     });
   </script>
 </body>
